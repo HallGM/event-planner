@@ -3,5 +3,13 @@
 
 {% for event in events %}
 <h2>{{event.name}}</h2>
+<p>Date: {{event.date}}</p>
+{% if event.no_of_guests == 1 %}
+<p>1 guest</p>
+<p>test</p>
+{% else %}
+<p>{{event.no_of_guests}} guests</p>
+{% endif %}
+<p>Location: {{event.location}}</p>
 <p>{{event.description}}</p>
 {% endfor %} {% endblock content %}

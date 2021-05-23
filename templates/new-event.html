@@ -1,14 +1,21 @@
 {% extends 'base.html' %} {% block content %}
 <form action="/new-event" method="post">
+
   <label for="event-date">Date:</label>
   <input type="date" id="event-date" name="event-date" />
 
   <label for="event-name">Event Name:</label>
   <input type="text" id="event-name" name="event-name">
 
+  <label for="guests">Number of Guests</label>
+  <input type="number" id="guests" name="guests" min="0" value="0">
+
+  <label for="location">Location</label>
+  <input type="text" id="location" name="location"></label>
 
   <label for="description">Description</label>
-  <textarea name="description" rows="2" cols="30"></textarea>
+  <input type="text" id="description" name="description">
+
   <input type="submit" value="Add Task" />
 </form>
 {% endblock content %}
