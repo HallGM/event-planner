@@ -16,14 +16,13 @@ def add_event():
 @app.route('/new-event', methods=['POST'])
 def new_event():
     form = request.form
+    recurring = bool(form.get('recurring'))
     new_date = datetime.date.fromisoformat(form['event-date'])   
-    new_event = Event(new_date, form['event-name'], int(form['guests']), form['location'], form['description'])
+    new_event = Event(new_date, form['event-name'], int(form['guests']), form['location'], form['description'], recurring)
     events.append(new_event)
     return render_template('index.html', events=events)
 
 @app.route('/delete/<id>', methods=['POST'])
 def delete_event(id):
-    print(events[0].id)
-    print(id)
     remove_event_with_id(id)
     return render_template('index.html', events=events)

@@ -12,7 +12,9 @@
 {% endif %}
 <p>Location: {{event.location}}</p>
 <p>{{event.description}}</p>
-
+{% if event.recurring %}
+<p>This is a recurring event</p>
+{% endif %}
 <form action="/delete/{{event.id}}" method="post">
   <input type="submit" value="DELETE" />
 </form>
