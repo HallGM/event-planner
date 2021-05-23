@@ -103,6 +103,11 @@ input.submit.delete {
   color: red;
   background-color: rgba(255, 0, 0, 0.062);
 }
+input.submit.delete:hover {
+  border-color: red;
+  color: white;
+  background-color: red;
+}
 
 /* New Event Form */
 
