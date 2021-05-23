@@ -5,4 +5,8 @@ class Event:
         self.no_of_guests = no_of_guests
         self.location = location
         self.description = description
+        self.id = id(self)
+    
+    def __string__(self):
+        return str(vars(self))
         

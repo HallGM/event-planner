@@ -1,8 +1,9 @@
 from threading import Event
 from app import app
 from flask import render_template, request
-from models.event_list import events
+from models.event_list import events, remove_event_with_id
 from models.event import Event
+import datetime
 
 @app.route('/')
 def index():
@@ -15,7 +16,14 @@ def add_event():
 @app.route('/new-event', methods=['POST'])
 def new_event():
     form = request.form
-    print(type(form['event-date']))
-    new_event = Event(form['event-date'], form['event-name'], int(form['guests']), form['location'], form['description'])
+    new_date = datetime.date.fromisoformat(form['event-date'])   
+    new_event = Event(new_date, form['event-name'], int(form['guests']), form['location'], form['description'])
     events.append(new_event)
+    return render_template('index.html', events=events)
+
+@app.route('/delete/<id>', methods=['POST'])
+def delete_event(id):
+    print(events[0].id)
+    print(id)
+    remove_event_with_id(id)
     return render_template('index.html', events=events)
