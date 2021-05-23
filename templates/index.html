@@ -1,21 +1,30 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Events:</h1>
+<div class="events-container">
+  {% for event in events %}
+  <div class="event-item box-item">
+    <h2>{{event.name}}</h2>
+    <div class="event-content">
+      <p><strong>Date:</strong> {{event.date}}</p>
+      <p>
+        <strong>Location:</strong><br />
+        {{event.location}}
+      </p>
+      {% if event.no_of_guests == 1 %}
+      <p>1 guest</p>
+      <p>test</p>
+      {% else %}
+      <p>{{event.no_of_guests}} guests</p>
+      {% endif %}
 
-{% for event in events %}
-<h2>{{event.name}}</h2>
-<p>Date: {{event.date}}</p>
-{% if event.no_of_guests == 1 %}
-<p>1 guest</p>
-<p>test</p>
-{% else %}
-<p>{{event.no_of_guests}} guests</p>
-{% endif %}
-<p>Location: {{event.location}}</p>
-<p>{{event.description}}</p>
-{% if event.recurring %}
-<p>This is a recurring event</p>
-{% endif %}
-<form action="/delete/{{event.id}}" method="post">
-  <input type="submit" value="DELETE" />
-</form>
-{% endfor %} {% endblock content %}
+      <p>{{event.description}}</p>
+      {% if event.recurring %}
+      <p><em>This is a recurring event</em></p>
+      {% endif %}
+      <form action="/delete/{{event.id}}" method="post">
+        <input type="submit" value="DELETE" class="submit delete" />
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

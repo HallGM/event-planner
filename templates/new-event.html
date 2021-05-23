@@ -1,24 +1,33 @@
 {% extends 'base.html' %} {% block content %}
-<form action="/new-event" method="post">
 
-  <label for="event-date">Date:</label>
-  <input type="date" id="event-date" name="event-date" />
-
-  <label for="event-name">Event Name:</label>
-  <input type="text" id="event-name" name="event-name">
-
-  <label for="guests">Number of Guests</label>
-  <input type="number" id="guests" name="guests" min="0" value="0">
-
-  <label for="location">Location</label>
-  <input type="text" id="location" name="location"></label>
-
-  <label for="description">Description</label>
-  <input type="text" id="description" name="description">
-
-  <label for ="recurring">Recurring Event?</label>
-  <input type="checkbox" name="recurring" id="recurring">
-
-  <input type="submit" value="Add Task" />
+<form action="/new-event" method="post" id="new-event-form" class="box-item">
+  <h2>New Event...</H2>
+  <div>
+    <label for="event-date">Date:</label>
+    <input type="date" id="event-date" name="event-date" />
+  </div>
+  <div>
+    <label for="event-name">Event Name:</label>
+    <input type="text" id="event-name" name="event-name">
+  </div>
+  <div>
+    <label for="guests">Number of Guests:</label>
+    <input type="number" id="guests" name="guests" min="0" value="0">
+  </div>
+  <div>
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location"></label>
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <textarea id="description" name="description"></textarea>
+  </div>
+  <div>
+    <label for ="recurring" id="recurring-label">Recurring Event?</label>
+    <input type="checkbox" name="recurring" id="recurring">
+  </div>
+  <div>
+    <input type="submit" value="Add Task" class="submit" />
+  </div>
 </form>
 {% endblock content %}

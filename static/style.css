@@ -1,0 +1,159 @@
+:root {
+  --main-color: #3c096c;
+  --second-color: #7b2cbf;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  /* background-color: #f8f9fa; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: var(--main-color);
+}
+
+/* Remove default ul and ui */
+ul {
+  list-style: none;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Generics */
+
+.box-item {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/*remove default submit button */
+input.submit {
+  display: inline-block;
+  background: none;
+  font-size: 1em;
+}
+input.submit:hover {
+  cursor: pointer;
+}
+
+/* Main navigation menu */
+#main-navbar {
+  background-color: var(--main-color);
+  margin-bottom: 20px;
+}
+
+#main-navbar ul {
+  display: flex;
+}
+
+#main-navbar ul li a {
+  display: block;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+#main-navbar ul li a:hover {
+  background-color: var(--second-color);
+}
+
+/* EVENT item */
+.events-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.event-item {
+  width: 400px;
+  margin-bottom: 10px;
+  /* flex-grow: 1; */
+  text-align: center;
+  margin-right: 20px;
+}
+
+.event-item h2 {
+  background-color: var(--main-color);
+  color: white;
+  display: block;
+  padding-bottom: 5px;
+  border-radius: 10px 10px 0 0;
+}
+
+.event-item .event-content {
+  padding: 0 5px 10px 5px;
+}
+
+input.submit.delete {
+  border-color: red;
+  color: red;
+  background-color: rgba(255, 0, 0, 0.062);
+}
+
+/* New Event Form */
+
+form#new-event-form {
+  background-color: var(--main-color);
+  color: white;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+}
+
+form#new-event-form h2 {
+  margin-bottom: 10px;
+}
+
+form#new-event-form div {
+  margin-bottom: 20px;
+}
+
+form#new-event-form label {
+  display: block;
+}
+
+form#new-event-form label#recurring-label {
+  display: inline;
+}
+
+form#new-event-form input,
+form#new-event-form textarea {
+  width: 100%;
+  margin: none;
+}
+
+form#new-event-form input#recurring {
+  display: inline;
+  width: fit-content;
+}
+
+form#new-event-form textarea#description {
+  height: 100px;
+}
+
+form#new-event-form input.submit {
+  background-color: lightgreen;
+  display: block;
+  margin: auto;
+  max-width: 300px;
+  padding: 5px 10px 5px 10px;
+  color: darkgreen;
+}
+
+form#new-event-form input.submit:hover {
+  background-color: white;
+}
